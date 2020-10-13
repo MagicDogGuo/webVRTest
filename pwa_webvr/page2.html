@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="manifest" href="manifest.json">
+   <noscript>pwa</noscript>
+    <script src="main/aframe.min.js"></script>
+     <!-- ga -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178423246-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-178423246-1');
+    </script>
+</head>
+<body>
+  <a-scene background="color: #ECECEC" renderer="colorManagement: true;">
+    <!-- Camera + cursor. -->
+    <a-entity position="0.4 -.4 0">
+      <a-camera id="camera" look-controls wasd-controls>
+        <a-ring 
+          radius-outer="0.30" 
+          radius-inner="0.20"
+          position="0 0 -3"
+          ambient-occlusion-map="5"
+          material="color: cyan; shader: flat"
+          cursor="maxDistance: 30; fuse: true">
+        </a-ring>
+      </a-camera>
+    </a-entity>
+    <a-assets>
+      <img id="pc" src="images/show_2.png">
+      <img id="txt" src="images/txt.png">
+      <img id="home" src="images/home.png">
+      <img id="pic" src="images/pic_2.png">
+    </a-assets>
+    <a-entity  
+      id="model" 
+      position="0 0 -3">
+      <a-image       
+        src="#pc" 
+        position="0.25 1 .53" 
+        scale="1.7 1.7 1.7">
+      </a-image>
+    </a-entity>
+    <a-cylinder 
+      id="home" 
+      color="#101010" 
+      height="0.02" 
+      radius="0.8" 
+      link="href:index.html"
+      rotation="-90 0 0"
+      position="8 3.5 -9">
+      <a-image 
+        src="#home" 
+        width="2.7" 
+        height="2.7" 
+        rotation="90 0 0" 
+        position="0 -.05 0" 
+        scale=".4 .4 .4">
+      </a-image>
+    </a-cylinder>
+    <a-curvedimage 
+      id="text" 
+      src="#txt" 
+      radius="5.7" 
+      theta-length="18" 
+      height="2.8" 
+      position=".5 1.1 0"  
+      scale=".4 .4 .4"
+      rotation="0 210 0" >
+    </a-curvedimage>
+    <a-curvedimage 
+      id="pic" 
+      src="#pic" 
+      radius="5.7" 
+      theta-length="18" 
+      height=".8" 
+      position="0 0.9 0" 
+      scale=".4 .4 .4" 
+      rotation="0 130 0">
+    </a-curvedimage>
+    <a-cylinder 
+      position="0 0.5 0" 
+      radius="4" 
+      height="1.6" 
+      side="back" 
+      open-ended="true" 
+      color="#ECECEC">
+      </a-cylinder>
+    <a-entity 
+      geometry="primitive: plane; height: 100; width: 100"
+      color="#222" 
+      rotation="-90 0 0">
+    </a-entity>
+    <a-light 
+      type="directional" 
+      color="#fff" 
+      intensity="0.2" 
+      position="-1 2 1">      
+    </a-light>
+    <a-light 
+      type="ambient" 
+      color="#ECECEC">      
+    </a-light>
+  </a-scene>
+  <script>
+  //service Worker(pwa 用)
+  var serviceWorkerIsSup = 'serviceWorker' in navigator ? true : false
+  if ( serviceWorkerIsSup ) {
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('sw.js');
+    });
+  }
+  </script>
+</body>
+</html>
