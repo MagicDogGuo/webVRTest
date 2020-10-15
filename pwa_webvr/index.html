@@ -43,14 +43,16 @@
       <a-assets>
         <img id="city" crossorigin="anonymous" src="images/TTT.jpg">
         <img id="city-thumb" crossorigin="anonymous" src="images/buy.png">
-        <img id="cubes-thumb" crossorigin="anonymous" src="images/buy.png">
-        <img id="sechelt-thumb" crossorigin="anonymous" src="images/buy.png">
+        <img id="worship-thumb" crossorigin="anonymous" src="images/worship.png">
+        <img id="san-thumb" crossorigin="anonymous" src="images/san.png">
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
       </a-assets>
+
       <!--TEXT -->
+      <!--
       <a-entity
         text="font: https://cdn.aframe.io/fonts/Monoid.fnt; value: This text will be 4 units wide.\n sdasdd\n sdassssss; "
-        position="0 0.5 -4"
+        position="-5 0.5 -4"
         scale= "3 3 3"
         look-at="#camera">
       </a-entity>
@@ -64,27 +66,24 @@
         position="-5 1.2 -4"
         look-at="#camera"
         font="https://cdn.aframe.io/fonts/Monoid.fnt">
-    </a-text>
+      </a-text>
+      -->
       <!-- 360-degree image. -->
       <a-sky id="image-360" radius="10" src="#city"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
       <!-- 3D  -->
-      <a-sphere position="-3 1.2 -4" radius="0.3" color="#EF2D5E" shadow
+      <a-sphere position="-6 1.2 -3" radius="0.3" color="#EF2D5E" shadow
         event-set__enter="_event: mouseenter; _target: #X3DText; visible: true"
         event-set__leave="_event: mouseleave; _target: #X3DText; visible: false">
-        <a-text
+        <a-image
           id="X3DText"
-          geometry="primitive: plane; width: 1.75"
-          material="color: #333"
-          value="This is a cylinder3"
-          align="center"
-          color="#FFF"
+          src="#san-thumb"
+          position="2 0 3"
+          scale="3 3 3"
           visible="false"
-          position="0 -0.55 0.55"
-          look-at="#camera"
-          font="https://cdn.aframe.io/fonts/Monoid.fnt">
-        </a-text>
+          look-at="#camera">
+        </a-image>
       </a-sphere>
       <!-- "button" -->
       <a-circle position="-1 1.2 -4"radius="0.5" height="1.5" color="#4CC3D9"
@@ -97,7 +96,7 @@
           event-set__leave="_event: mouseleave; _target: #cylinderText; visible: false">
           <a-text
             id="cylinderText"
-            value="This is a cylinder"
+            value="This is a circle"
             align="center"
             color="#FFF"
             visible="false"
@@ -109,26 +108,19 @@
           </a-text>
       </a-circle>
       <a-image
-        src="#cubes-thumb"
+        id="me"
+        src="#city-thumb"
         position="3 1.2 -4"
-        event-set__enter="_event: mouseenter; _target: #X2DText; visible: true"
-        event-set__leave="_event: mouseleave; _target: #X2DText; visible: false">
-        <a-text
+        event-set__enter="_event: mouseenter; _target: #X2DText; visible: true;"
+        event-set__leave="_event: mouseleave; _target: #X2DText; visible: false;">
+        <a-image
           id="X2DText"
-          value="This is a cylinder2"
-          align="center"
-          color="#FFF"
+          src="#worship-thumb"
+          position="2 1 0.55"
+          scale="3 3 3"
           visible="false"
-          position="0 -0.55 0.55"
-          geometry="primitive: plane; width: 1.75"
-          material="color: #333"
-          look-at="#camera"
-          font=" 	https://cdn.aframe.io/fonts/Exo2Bold.fnt">
-        </a-text>
-      </a-image>
-      <a-image
-        src="#cubes-thumb"
-        position="3 1.2 -4">
+          look-at="#camera">
+        </a-image>
       </a-image>
       <!-- Camera + cursor. -->
       <a-entity position="1.3 -1 .7">
