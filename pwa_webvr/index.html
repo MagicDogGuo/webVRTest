@@ -70,75 +70,145 @@
         font="https://cdn.aframe.io/fonts/Monoid.fnt">
       </a-text>
       -->
+
+      <!-- Target -->
+        <!--a-box id="target"  position="-6 3 -3" material="color: green"></a-box>
+        <a-image
+          id="X1DText"
+          src="#san-thumb"
+          position="-6 3 -3"
+          scale="3 3 3"
+          visible="false"
+          look-at="#camera">
+        </a-image>
+
+        <script type="text/javascript">
+          var targetEl = document.querySelector('#target');
+          var targetE2 = document.querySelector('#X1DText');
+
+          targetEl.addEventListener('mouseenter', function() {
+          targetEl.setAttribute('material', {color: 'red'});
+          targetE2.setAttribute('visible', true);
+          });
+          targetEl.addEventListener('mouseleave', function() {
+          targetEl.setAttribute('material', {color: 'green'});
+          targetE2.setAttribute('visible', false);
+          });
+        </script-->
+
       <!-- 360-degree image. -->
       <a-sky id="image-360" radius="10" src="#city"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
       <!-- 3D San  -->
-      <a-sphere position="-6 1.2 -3" radius="0.2" color="#EF2D5E" shadow
-        event-set__enter="_event: mouseenter; _target: #X3DText; visible: true"
-        event-set__leave="_event: mouseleave; _target: #X3DText; visible: false">
-        <a-image
-          id="X3DText"
-          src="#san-thumb"
-          position="2 0 3"
-          scale="3 3 3"
-          visible="false"
-          look-at="#camera">
-        </a-image>
-      </a-sphere>
+      <a-sphere id="san" position="-6 1.2 -3" radius="0.2" color="#EF2D5E" shadow> </a-sphere>
+      <a-image
+        id="sanText"
+        src="#san-thumb"
+        position="-6 3 -3"
+        scale="6 6 6"
+        visible="false"
+        look-at="#camera">
+      </a-image>
+
       <!-- Sam  -->
       <a-image
+        id="sam"
         src="#cat-thumb"
-        position="-7 1.5 -6"
-        event-set__enter="_event: mouseenter; _target: #X4DText; visible: true;"
-        event-set__leave="_event: mouseleave; _target: #X4DText; visible: false;"
+        position="-5 1.5 -5"
         look-at="#camera">
-        <a-image
-          id="X4DText"
-          src="#sam-thumb"
-          position="2 -1 5"
-          scale="3 3 3"
-          visible="false"
-          look-at="#camera">
-        </a-image>
       </a-image>
-      <!-- "button" -->
-      <a-circle position="-1 3 -4"radius="0.5" height="1.5" color="#4CC3D9"
+      <a-image
+        id="samText"
+        src="#sam-thumb"
+        position="-3 3 -6"
+        scale="5 5 5"
+        visible="false"
+        look-at="#camera">
+      </a-image>
+
+      <!-- "button" color -->
+      <a-circle position="3 5 -4"radius="0.5" height="1.5" color="#4CC3D9"
            event-set__enter="_event: mouseenter; color: #8FF7FF"
            event-set__leave="_event: mouseleave; color: #4CC3D9">
       </a-circle>
       <!--https://aframe.io/docs/1.0.0/introduction/interactions-and-controllers.html -->
-      <a-circle position="1 1.2 -4" radius="0.5" height="1.5" color="#FFC65D"
-          event-set__enter="_event: mouseenter; _target: #cylinderText; visible: true"
-          event-set__leave="_event: mouseleave; _target: #cylinderText; visible: false">
-          <a-text
-            id="cylinderText"
-            value="This is a circle"
-            align="center"
-            color="#FFF"
-            visible="false"
-            position="0 -0.55 0.55"
-            geometry="primitive: plane; width: 1.75"
-            material="color: #333"
-            font="assets/ariali.ttf.fnt"
-            fontimage="assets/ariali.ttf_0.png">
-          </a-text>
-      </a-circle>
+      <a-circle id="circle" position="1 1.2 -4" radius="0.5" height="1.5" color="#FFC65D">  </a-circle>
+      <a-text
+        id="circleText"
+        value="This is a circle"
+        align="center"
+        color="#FFF"
+        visible="false"
+        position="1 3 -4"
+        geometry="primitive: plane; width: 1.75"
+        material="color: #333"
+        font="assets/ariali.ttf.fnt"
+        fontimage="assets/ariali.ttf_0.png">
+      </a-text>
+      <!-- worship -->
       <a-image
+        id ="worship"
         src="#city-thumb"
-        position="3 1.2 -4"
-        event-set__enter="_event: mouseenter; _target: #X2DText; visible: true;"
-        event-set__leave="_event: mouseleave; _target: #X2DText; visible: false;">
-        <a-image
-          id="X2DText"
-          src="#worship-thumb"
-          position="2 1 0.55"
-          scale="3 3 3"
-          visible="false"
-          look-at="#camera">
-        </a-image>
+        position="3 1.2 -4">
       </a-image>
+      <a-image
+        id="worshipText"
+        src="#worship-thumb"
+        position="3 3 -4"
+        scale="3 3 3"
+        visible="false"
+        look-at="#camera">
+      </a-image>
+
+
+      <!-- listener-->
+      <script type="text/javascript">
+        var targetESan = document.querySelector('#san');
+        var targetESanImage = document.querySelector('#sanText');
+        var targetESam = document.querySelector('#sam');
+        var targetESamImage = document.querySelector('#samText');
+        var targetEcircle = document.querySelector('#circle');
+        var targetEcircleImage = document.querySelector('#circleText');
+        var targetEworship = document.querySelector('#worship');
+        var targetEworshipImage = document.querySelector('#worshipText');
+
+        targetESan.addEventListener('mouseenter', function() {
+          targetESan.setAttribute('material', {color: 'blue'});
+          targetESanImage.setAttribute('visible', true);
+        });
+        targetESam.addEventListener('mouseenter', function() {
+          targetESam.setAttribute('material', {color: 'blue'});
+          targetESamImage.setAttribute('visible', true);
+        });
+        targetEcircle.addEventListener('mouseenter', function() {
+          targetEcircle.setAttribute('material', {color: 'blue'});
+          targetEcircleImage.setAttribute('visible', true);
+        });
+        targetEworship.addEventListener('mouseenter', function() {
+          targetEworship.setAttribute('material', {color: 'blue'});
+          targetEworshipImage.setAttribute('visible', true);
+        });
+
+        targetESan.addEventListener('mouseleave', function() {
+          targetESan.setAttribute('material', {color: '#EF2D5E'});
+          targetESanImage.setAttribute('visible', false);
+        });
+        targetESam.addEventListener('mouseleave', function() {
+          targetESam.setAttribute('material', {color: 'white'});
+          targetESamImage.setAttribute('visible', false);
+        });
+        targetEcircle.addEventListener('mouseleave', function() {
+          targetEcircle.setAttribute('material', {color: '#FFC65D'});
+          targetEcircleImage.setAttribute('visible', false);
+        });
+        targetEworship.addEventListener('mouseleave', function() {
+          targetEworship.setAttribute('material', {color: 'white'});
+          targetEworshipImage.setAttribute('visible', false);
+        });
+      </script>
+
+
       <!-- Camera + cursor. -->
       <a-entity position="1.3 -1 .7">
         <a-camera id="camera" look-controls wasd-controls>
