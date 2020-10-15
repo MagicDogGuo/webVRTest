@@ -36,6 +36,7 @@
         proxy-event="event: click; to: #image-360; as: fade"
         sound="on: click; src: #click-sound"></a-entity>
     </script>
+
   </head>
   <body>
     <a-scene>
@@ -139,7 +140,8 @@
               // Use the window load event to keep the page load performant
               window.addEventListener('load', function(){
                       // register your service worker
-                      navigator.serviceWorker.register('sw.js');
+                      //不好測試先註解掉
+                      //navigator.serviceWorker.register('sw.js');
                       // to use the precaching version
                       // navigator.serviceWorker.register('sw-precaching.js');
               });
