@@ -48,12 +48,24 @@
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
       </a-assets>
       <!--TEXT -->
-      <a-entity
+      <!--a-entity
         text="value: This text will be 4 units wide.\n sdasdd\n sdassssss"
         position="-5 1.2 -4"
         scale= "3 3 3"
-        look-at="#camera">
-      </a-entity>
+        look-at="#camera"
+        font="https://cdn.aframe.io/fonts/Monoid.fnt">
+      </a-entity-->
+      <a-text
+        geometry="primitive: plane; width: 1.75"
+        material="color: #333"
+        value="This is a cylinder4"
+        align="center"
+        color="#FFF"
+        visible="true"
+        position="-5 1.2 -4"
+        look-at="#camera"
+        font="https://cdn.aframe.io/fonts/Monoid.fnt">
+    </a-text>
       <!-- 360-degree image. -->
       <a-sky id="image-360" radius="10" src="#city"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
