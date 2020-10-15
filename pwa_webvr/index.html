@@ -43,8 +43,10 @@
       <a-assets>
         <img id="city" crossorigin="anonymous" src="images/TTT.jpg">
         <img id="city-thumb" crossorigin="anonymous" src="images/buy.png">
+        <img id="cat-thumb" crossorigin="anonymous" src="images/cat.png">
         <img id="worship-thumb" crossorigin="anonymous" src="images/worship.png">
         <img id="san-thumb" crossorigin="anonymous" src="images/san.png">
+        <img id="sam-thumb" crossorigin="anonymous" src="images/sam.png">
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
       </a-assets>
 
@@ -72,8 +74,8 @@
       <a-sky id="image-360" radius="10" src="#city"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
-      <!-- 3D  -->
-      <a-sphere position="-6 1.2 -3" radius="0.3" color="#EF2D5E" shadow
+      <!-- 3D San  -->
+      <a-sphere position="-6 1.2 -3" radius="0.2" color="#EF2D5E" shadow
         event-set__enter="_event: mouseenter; _target: #X3DText; visible: true"
         event-set__leave="_event: mouseleave; _target: #X3DText; visible: false">
         <a-image
@@ -85,8 +87,24 @@
           look-at="#camera">
         </a-image>
       </a-sphere>
+      <!-- Sam  -->
+      <a-image
+        src="#cat-thumb"
+        position="-7 1.5 -6"
+        event-set__enter="_event: mouseenter; _target: #X4DText; visible: true;"
+        event-set__leave="_event: mouseleave; _target: #X4DText; visible: false;"
+        look-at="#camera">
+        <a-image
+          id="X4DText"
+          src="#sam-thumb"
+          position="2 -1 5"
+          scale="3 3 3"
+          visible="false"
+          look-at="#camera">
+        </a-image>
+      </a-image>
       <!-- "button" -->
-      <a-circle position="-1 1.2 -4"radius="0.5" height="1.5" color="#4CC3D9"
+      <a-circle position="-1 3 -4"radius="0.5" height="1.5" color="#4CC3D9"
            event-set__enter="_event: mouseenter; color: #8FF7FF"
            event-set__leave="_event: mouseleave; color: #4CC3D9">
       </a-circle>
@@ -108,7 +126,6 @@
           </a-text>
       </a-circle>
       <a-image
-        id="me"
         src="#city-thumb"
         position="3 1.2 -4"
         event-set__enter="_event: mouseenter; _target: #X2DText; visible: true;"
