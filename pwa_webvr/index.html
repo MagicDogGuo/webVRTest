@@ -6,8 +6,12 @@
   <head>
     <link rel="manifest" href="manifest.json">
     <meta charset="utf-8">
-    <title>testVR</title>
+    <title>Jiang_WeishuiVR</title>
     <meta name="description" content="360;">
+    <noscript>
+      <p>本頁面需要瀏覽器支持（啟用）JavaScript</p>
+    </noscript>
+
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
@@ -26,6 +30,7 @@
       gtag('config', 'UA-178423246-1');
     </script>
 
+
     <script id="link" type="text/html">
       <a-entity class="link"
         geometry="primitive: plane; height: 1; width: 1"
@@ -37,18 +42,23 @@
         sound="on: click; src: #click-sound"></a-entity>
     </script>
 
+
   </head>
   <body>
+    <!-- 設定a-scene是為了屬性配合a-link -->
     <a-scene>
       <a-assets>
         <img id="city" crossorigin="anonymous" src="images/TTT.jpg">
         <img id="city-thumb" crossorigin="anonymous" src="images/buy.png">
-        <img id="cat-thumb" crossorigin="anonymous" src="images/cat.png">
-        <img id="worship-thumb" crossorigin="anonymous" src="images/worship.png">
-        <img id="san-thumb" crossorigin="anonymous" src="images/san.png">
-        <img id="sam-thumb" crossorigin="anonymous" src="images/sam.png">
+        <img id="dot-thumb" crossorigin="anonymous" src="images/dot.png">
+        <img id="worship-thumb" crossorigin="anonymous" src="images/daily01.png">
+        <img id="san-thumb" crossorigin="anonymous" src="images/daily05.png">
+        <img id="sam-thumb" crossorigin="anonymous" src="images/police.png">
+        <!--img id="YYYjpg" crossorigin="anonymous" src="images/YYY.jpg"-->
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
       </a-assets>
+
+      <!--a-link position="5 1.2 -3" href="YYY.html" title="Yongle Market" image="#YYYjpg" ></a-link-->
 
       <!--TEXT -->
       <!--
@@ -97,16 +107,23 @@
         </script-->
 
       <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="10" src="#city"
+      <a-sky id="image-360" radius="20" src="#city"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+
+
       <!-- 3D San  -->
-      <a-sphere id="san" position="-6 1.2 -3" radius="0.2" color="#EF2D5E" shadow> </a-sphere>
+      <a-image
+        id="san"
+        src="#dot-thumb"
+        position="-6 1.2 -3"
+        look-at="#camera">
+      </a-image>
       <a-image
         id="sanText"
         src="#san-thumb"
-        position="-6 3 -3"
-        scale="6 6 6"
+        position="-6 5 -3"
+        scale="9.9 6.6 1"
         visible="false"
         look-at="#camera">
       </a-image>
@@ -114,26 +131,32 @@
       <!-- Sam  -->
       <a-image
         id="sam"
-        src="#cat-thumb"
+        src="#dot-thumb"
         position="-5 1.5 -5"
         look-at="#camera">
       </a-image>
       <a-image
         id="samText"
         src="#sam-thumb"
-        position="-3 3 -6"
-        scale="5 5 5"
+        position="-5 5 -5"
+        scale="9.9 6.6 1"
         visible="false"
         look-at="#camera">
       </a-image>
 
       <!-- "button" color -->
-      <a-circle position="3 5 -4"radius="0.5" height="1.5" color="#4CC3D9"
+      <!--a-circle position="3 5 -4"radius="0.5" height="1.5" color="#4CC3D9"
            event-set__enter="_event: mouseenter; color: #8FF7FF"
            event-set__leave="_event: mouseleave; color: #4CC3D9">
-      </a-circle>
+      </a-circle-->
       <!--https://aframe.io/docs/1.0.0/introduction/interactions-and-controllers.html -->
-      <a-circle id="circle" position="1 1.2 -4" radius="0.5" height="1.5" color="#FFC65D">  </a-circle>
+      <!--a-circle id="circle" position="1 1.2 -4" radius="0.5" height="1.5" color="#FFC65D">  </a-circle-->
+      <a-image
+        id="circle"
+        src="#dot-thumb"
+        position="1 1.2 -4"
+        look-at="#camera">
+      </a-image>
       <a-text
         id="circleText"
         value="This is a circle"
@@ -149,14 +172,14 @@
       <!-- worship -->
       <a-image
         id ="worship"
-        src="#city-thumb"
+        src="#dot-thumb"
         position="3 1.2 -4">
       </a-image>
       <a-image
         id="worshipText"
         src="#worship-thumb"
-        position="3 3 -4"
-        scale="3 3 3"
+        position="3 3.5 -4"
+        scale="6 4 1"
         visible="false"
         look-at="#camera">
       </a-image>
@@ -191,7 +214,7 @@
         });
 
         targetESan.addEventListener('mouseleave', function() {
-          targetESan.setAttribute('material', {color: '#EF2D5E'});
+          targetESan.setAttribute('material', {color: 'white'});
           targetESanImage.setAttribute('visible', false);
         });
         targetESam.addEventListener('mouseleave', function() {
@@ -199,7 +222,7 @@
           targetESamImage.setAttribute('visible', false);
         });
         targetEcircle.addEventListener('mouseleave', function() {
-          targetEcircle.setAttribute('material', {color: '#FFC65D'});
+          targetEcircle.setAttribute('material', {color: 'white'});
           targetEcircleImage.setAttribute('visible', false);
         });
         targetEworship.addEventListener('mouseleave', function() {
@@ -212,10 +235,11 @@
       <!-- Camera + cursor. -->
       <a-entity position="1.3 -1 .7">
         <a-camera id="camera" look-controls wasd-controls>
-          <a-ring radius-outer="0.30" radius-inner="0.20"
-            position="0 0 -3"
+          <a-ring radius-outer="0.10" radius-inner="0.05"
+            position="0 0 -2"
             material="color: cyan; shader: flat"
-            cursor="maxDistance: 30; fuse: true">
+            cursor="maxDistance: 30; fuse: true;">
+            <!--raycaster="far: 100; objects: [link];"  object指定特定類型物件可被選取 -->
             <a-animation begin="click" easing="ease-in" attribute="scale"
               fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
             <a-animation begin="fusing" easing="ease-in" attribute="scale"
