@@ -6,7 +6,7 @@
   <head>
     <link rel="manifest" href="manifest.json">
     <meta charset="utf-8">
-    <title>Jiang_WeishuiVR</title>
+    <title>Dungeon_WeishuiVR</title>
     <meta name="description" content="360;">
     <noscript>
       <p>本頁面需要瀏覽器支持（啟用）JavaScript</p>
@@ -48,12 +48,17 @@
     <!-- 設定a-scene是為了屬性配合a-link -->
     <a-scene>
       <a-assets>
-        <img id="city" crossorigin="anonymous" src="images/TTT.jpg">
+        <img id="city" crossorigin="anonymous" src="images/Dungeon360.jpg">
         <img id="city-thumb" crossorigin="anonymous" src="images/buy.png">
         <img id="dot-thumb" crossorigin="anonymous" src="images/dot.png">
-        <img id="worship-thumb" crossorigin="anonymous" src="images/daily01.png">
-        <img id="san-thumb" crossorigin="anonymous" src="images/daily05.png">
-        <img id="sam-thumb" crossorigin="anonymous" src="images/police.png">
+        <img id="daily01-thumb" crossorigin="anonymous" src="images/daily01.png">
+        <img id="daily02-thumb" crossorigin="anonymous" src="images/daily02.png">
+        <img id="daily05-thumb" crossorigin="anonymous" src="images/daily05.png">
+        <img id="police-thumb" crossorigin="anonymous" src="images/police.png">
+        <img id="dungon-thumb" crossorigin="anonymous" src="images/dungon.png">
+
+
+
         <!--img id="YYYjpg" crossorigin="anonymous" src="images/YYY.jpg"-->
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
       </a-assets>
@@ -112,34 +117,82 @@
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
 
 
-      <!-- 3D San  -->
+      <!-- dungon  -->
       <a-image
-        id="san"
+        id="dungon"
         src="#dot-thumb"
-        position="-6 1.2 -3"
+        position="-6 0.5 -2"
         look-at="#camera">
       </a-image>
       <a-image
-        id="sanText"
-        src="#san-thumb"
-        position="-6 5 -3"
+        id="dungonText"
+        src="#dungon-thumb"
+        position="-6 4 -2"
         scale="9.9 6.6 1"
         visible="false"
         look-at="#camera">
       </a-image>
 
-      <!-- Sam  -->
+      <!-- daily01  -->
       <a-image
-        id="sam"
+        id="daily01"
         src="#dot-thumb"
-        position="-5 1.5 -5"
+        position="-4 1.2 -4"
         look-at="#camera">
       </a-image>
       <a-image
-        id="samText"
-        src="#sam-thumb"
-        position="-5 5 -5"
-        scale="9.9 6.6 1"
+        id="daily01Text"
+        src="#daily01-thumb"
+        position="-4 4.3 -4"
+        scale="7.8 5.2 1"
+        visible="false"
+        look-at="#camera">
+      </a-image>
+
+      <!-- daily02  -->
+      <a-image
+        id="daily02"
+        src="#dot-thumb"
+        position="1 1.2 -4"
+        look-at="#camera">
+      </a-image>
+      <a-image
+        id="daily02Text"
+        src="#daily02-thumb"
+        position="1 3.8 -4"
+        scale="6 4 1"
+        visible="false"
+        look-at="#camera">
+      </a-image>
+
+      <!-- daily05 -->
+      <a-image
+        id ="daily05"
+        src="#dot-thumb"
+        position="4 1.2 -4"
+        look-at="#camera">
+      </a-image>
+      <a-image
+        id="daily05Text"
+        src="#daily05-thumb"
+        position="4 4 -4"
+        scale="6.6 4.4 1"
+        visible="false"
+        look-at="#camera">
+      </a-image>
+
+      <!-- police -->
+      <a-image
+        id ="police"
+        src="#dot-thumb"
+        position="3 1.2 5"
+        look-at="#camera">
+      </a-image>
+      <a-image
+        id="policeText"
+        src="#police-thumb"
+        position="3 3.5 5"
+        scale="6 4 1"
         visible="false"
         look-at="#camera">
       </a-image>
@@ -149,15 +202,7 @@
            event-set__enter="_event: mouseenter; color: #8FF7FF"
            event-set__leave="_event: mouseleave; color: #4CC3D9">
       </a-circle-->
-      <!--https://aframe.io/docs/1.0.0/introduction/interactions-and-controllers.html -->
-      <!--a-circle id="circle" position="1 1.2 -4" radius="0.5" height="1.5" color="#FFC65D">  </a-circle-->
-      <a-image
-        id="circle"
-        src="#dot-thumb"
-        position="1 1.2 -4"
-        look-at="#camera">
-      </a-image>
-      <a-text
+      <!--a-text
         id="circleText"
         value="This is a circle"
         align="center"
@@ -168,66 +213,64 @@
         material="color: #333"
         font="assets/ariali.ttf.fnt"
         fontimage="assets/ariali.ttf_0.png">
-      </a-text>
-      <!-- worship -->
-      <a-image
-        id ="worship"
-        src="#dot-thumb"
-        position="3 1.2 -4">
-      </a-image>
-      <a-image
-        id="worshipText"
-        src="#worship-thumb"
-        position="3 3.5 -4"
-        scale="6 4 1"
-        visible="false"
-        look-at="#camera">
-      </a-image>
-
+      </a-text-->
+      <!--https://aframe.io/docs/1.0.0/introduction/interactions-and-controllers.html -->
+      <!--a-circle id="circle" position="1 1.2 -4" radius="0.5" height="1.5" color="#FFC65D">  </a-circle-->
 
       <!-- listener-->
       <script type="text/javascript">
-        var targetESan = document.querySelector('#san');
-        var targetESanImage = document.querySelector('#sanText');
-        var targetESam = document.querySelector('#sam');
-        var targetESamImage = document.querySelector('#samText');
-        var targetEcircle = document.querySelector('#circle');
-        var targetEcircleImage = document.querySelector('#circleText');
-        var targetEworship = document.querySelector('#worship');
-        var targetEworshipImage = document.querySelector('#worshipText');
+        var targetEdungon = document.querySelector('#dungon');
+        var targetEdungonImage = document.querySelector('#dungonText');
+        var targetEdaily01 = document.querySelector('#daily01');
+        var targetEdaily01Image = document.querySelector('#daily01Text');
+        var targetEdaily02 = document.querySelector('#daily02');
+        var targetEdaily02Image = document.querySelector('#daily02Text');
+        var targetEdaily05 = document.querySelector('#daily05');
+        var targetEdaily05Image = document.querySelector('#daily05Text');
+        var targetEpolice = document.querySelector('#police');
+        var targetEpoliceImage = document.querySelector('#policeText');
 
-        targetESan.addEventListener('mouseenter', function() {
-          targetESan.setAttribute('material', {color: 'blue'});
-          targetESanImage.setAttribute('visible', true);
+
+        targetEdungon.addEventListener('mouseenter', function() {
+          targetEdungon.setAttribute('material', {color: 'blue'});
+          targetEdungonImage.setAttribute('visible', true);
         });
-        targetESam.addEventListener('mouseenter', function() {
-          targetESam.setAttribute('material', {color: 'blue'});
-          targetESamImage.setAttribute('visible', true);
+        targetEdaily01.addEventListener('mouseenter', function() {
+          targetEdaily01.setAttribute('material', {color: 'blue'});
+          targetEdaily01Image.setAttribute('visible', true);
         });
-        targetEcircle.addEventListener('mouseenter', function() {
-          targetEcircle.setAttribute('material', {color: 'blue'});
-          targetEcircleImage.setAttribute('visible', true);
+        targetEdaily02.addEventListener('mouseenter', function() {
+          targetEdaily02.setAttribute('material', {color: 'blue'});
+          targetEdaily02Image.setAttribute('visible', true);
         });
-        targetEworship.addEventListener('mouseenter', function() {
-          targetEworship.setAttribute('material', {color: 'blue'});
-          targetEworshipImage.setAttribute('visible', true);
+        targetEdaily05.addEventListener('mouseenter', function() {
+          targetEdaily05.setAttribute('material', {color: 'blue'});
+          targetEdaily05Image.setAttribute('visible', true);
+        });
+        targetEpolice.addEventListener('mouseenter', function() {
+          targetEpolice.setAttribute('material', {color: 'blue'});
+          targetEpoliceImage.setAttribute('visible', true);
         });
 
-        targetESan.addEventListener('mouseleave', function() {
-          targetESan.setAttribute('material', {color: 'white'});
-          targetESanImage.setAttribute('visible', false);
+        targetEdungon.addEventListener('mouseleave', function() {
+          targetEdungon.setAttribute('material', {color: 'white'});
+          targetEdungonImage.setAttribute('visible', false);
         });
-        targetESam.addEventListener('mouseleave', function() {
-          targetESam.setAttribute('material', {color: 'white'});
-          targetESamImage.setAttribute('visible', false);
+        targetEdaily01.addEventListener('mouseleave', function() {
+          targetEdaily01.setAttribute('material', {color: 'white'});
+          targetEdaily01Image.setAttribute('visible', false);
         });
-        targetEcircle.addEventListener('mouseleave', function() {
-          targetEcircle.setAttribute('material', {color: 'white'});
-          targetEcircleImage.setAttribute('visible', false);
+        targetEdaily02.addEventListener('mouseleave', function() {
+          targetEdaily02.setAttribute('material', {color: 'white'});
+          targetEdaily02Image.setAttribute('visible', false);
         });
-        targetEworship.addEventListener('mouseleave', function() {
-          targetEworship.setAttribute('material', {color: 'white'});
-          targetEworshipImage.setAttribute('visible', false);
+        targetEdaily05.addEventListener('mouseleave', function() {
+          targetEdaily05.setAttribute('material', {color: 'white'});
+          targetEdaily05Image.setAttribute('visible', false);
+        });
+        targetEpolice.addEventListener('mouseleave', function() {
+          targetEpolice.setAttribute('material', {color: 'white'});
+          targetEpoliceImage.setAttribute('visible', false);
         });
       </script>
 
