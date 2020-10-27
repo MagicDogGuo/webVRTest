@@ -18,9 +18,8 @@
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
 
-
-    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <!--script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script-->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178423246-1"></script>
     <script>
@@ -41,23 +40,23 @@
         proxy-event="event: click; to: #image-360; as: fade"
         sound="on: click; src: #click-sound"></a-entity>
     </script>
-
-
   </head>
   <body>
     <!-- 設定a-scene是為了屬性配合a-link -->
     <a-scene>
       <a-assets>
         <img id="city" crossorigin="anonymous" src="images/Dungeon360.jpg">
-        <img id="city-thumb" crossorigin="anonymous" src="images/buy.png">
         <img id="dot-thumb" crossorigin="anonymous" src="images/dot.png">
         <img id="daily01-thumb" crossorigin="anonymous" src="images/daily01.png">
         <img id="daily02-thumb" crossorigin="anonymous" src="images/daily02.png">
         <img id="daily05-thumb" crossorigin="anonymous" src="images/daily05.png">
         <img id="police-thumb" crossorigin="anonymous" src="images/police.png">
         <img id="dungon-thumb" crossorigin="anonymous" src="images/dungon.png">
-
-
+        <audio id="D01-sound" crossorigin="anonymous" src="assets/Prison Diary.mp3"></audio>
+        <audio id="D02-sound" crossorigin="anonymous" src="assets/Prison Diary (2).mp3"></audio>
+        <audio id="D05-sound" crossorigin="anonymous" src="assets/Prison Diary (5).mp3"></audio>
+        <audio id="police-sound" crossorigin="anonymous" src="assets/Old Taipei Police Department.mp3"></audio>
+        <audio id="dungon-sound" crossorigin="anonymous" src="assets/Water Dungeon.mp3"></audio>
 
         <!--img id="YYYjpg" crossorigin="anonymous" src="images/YYY.jpg"-->
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
@@ -116,19 +115,19 @@
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
 
-
       <!-- dungon  -->
       <a-image
         id="dungon"
         src="#dot-thumb"
-        position="-6 0.5 -2"
-        look-at="#camera">
+        position="-5 0.5 -2"
+        look-at="#camera"
+        sound="on: mouseenter; src: #dungon-sound">
       </a-image>
       <a-image
         id="dungonText"
         src="#dungon-thumb"
-        position="-6 4 -2"
-        scale="9.9 6.6 1"
+        position="-5 4 -2"
+        scale="9 6 1"
         visible="false"
         look-at="#camera">
       </a-image>
@@ -137,13 +136,14 @@
       <a-image
         id="daily01"
         src="#dot-thumb"
-        position="-4 1.2 -4"
-        look-at="#camera">
+        position="-3 1.2 -4"
+        look-at="#camera"
+        sound="on: mouseenter; src: #D01-sound">
       </a-image>
       <a-image
         id="daily01Text"
         src="#daily01-thumb"
-        position="-4 4.3 -4"
+        position="-3 4.3 -4"
         scale="7.8 5.2 1"
         visible="false"
         look-at="#camera">
@@ -154,7 +154,8 @@
         id="daily02"
         src="#dot-thumb"
         position="1 1.2 -4"
-        look-at="#camera">
+        look-at="#camera"
+        sound="on: mouseenter; src: #D02-sound">
       </a-image>
       <a-image
         id="daily02Text"
@@ -170,7 +171,8 @@
         id ="daily05"
         src="#dot-thumb"
         position="4 1.2 -4"
-        look-at="#camera">
+        look-at="#camera"
+        sound="on: mouseenter; src: #D05-sound">
       </a-image>
       <a-image
         id="daily05Text"
@@ -186,7 +188,8 @@
         id ="police"
         src="#dot-thumb"
         position="3 1.2 5"
-        look-at="#camera">
+        look-at="#camera"
+        sound="on: mouseenter; src: #police-sound">
       </a-image>
       <a-image
         id="policeText"
@@ -230,7 +233,6 @@
         var targetEpolice = document.querySelector('#police');
         var targetEpoliceImage = document.querySelector('#policeText');
 
-
         targetEdungon.addEventListener('mouseenter', function() {
           targetEdungon.setAttribute('material', {color: 'blue'});
           targetEdungonImage.setAttribute('visible', true);
@@ -255,22 +257,30 @@
         targetEdungon.addEventListener('mouseleave', function() {
           targetEdungon.setAttribute('material', {color: 'white'});
           targetEdungonImage.setAttribute('visible', false);
+          targetEdungon.components.sound.stopSound();
         });
         targetEdaily01.addEventListener('mouseleave', function() {
           targetEdaily01.setAttribute('material', {color: 'white'});
           targetEdaily01Image.setAttribute('visible', false);
+          targetEdaily01.components.sound.stopSound();
+
         });
         targetEdaily02.addEventListener('mouseleave', function() {
           targetEdaily02.setAttribute('material', {color: 'white'});
           targetEdaily02Image.setAttribute('visible', false);
+          targetEdaily02.components.sound.stopSound();
+
         });
         targetEdaily05.addEventListener('mouseleave', function() {
           targetEdaily05.setAttribute('material', {color: 'white'});
           targetEdaily05Image.setAttribute('visible', false);
+          targetEdaily05.components.sound.stopSound();
+
         });
         targetEpolice.addEventListener('mouseleave', function() {
           targetEpolice.setAttribute('material', {color: 'white'});
           targetEpoliceImage.setAttribute('visible', false);
+          targetEpolice.components.sound.stopSound();
         });
       </script>
 
