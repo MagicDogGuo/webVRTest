@@ -52,7 +52,7 @@
     <a-scene>
 
       <!--聲音播放-->
-      <audio id="myAudio">
+      <audio id="myAudio" muted>
         <source src="assets/welcom.mp3" crossorigin="anonymous" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
@@ -73,6 +73,21 @@
       </audio>
 
       <script>
+        window.addEventListener('touchstart', function() {
+
+        // create empty buffer
+        var buffer = myContext.createBuffer(1, 1, 22050);
+        var source = myContext.createBufferSource();
+        source.buffer = buffer;
+
+        // connect to output (your speakers)
+        source.connect(myContext.destination);
+
+        // play the file
+        source.noteOn(0);
+
+        }, false);
+
         //window.alert("Touch on the screen to start the tour");
         var x = document.getElementById("myAudio");
         var d01 = document.getElementById("D01-sound");
@@ -282,20 +297,6 @@
 
       <!-- listener-->
       <script type="text/javascript">
-      window.addEventListener('touchstart', function() {
-
-      // create empty buffer
-      var buffer = myContext.createBuffer(1, 1, 22050);
-      var source = myContext.createBufferSource();
-      source.buffer = buffer;
-
-      // connect to output (your speakers)
-      source.connect(myContext.destination);
-
-      // play the file
-      source.noteOn(0);
-
-      }, false);
 
         var targetEdungon = document.querySelector('#dungon');
         var targetEdungonImage = document.querySelector('#dungonText');
