@@ -57,19 +57,19 @@
         Your browser does not support the audio element.
       </audio>
       <audio id="D01-sound">
-        <source crossorigin="anonymous" src="assets/PrisonDiary.mp3" type="audio/mpeg">
+        <source crossorigin="anonymous" src="assets/PrisonDiary.mp3" type="audio/mpeg"  preload="auto">
       </audio>
       <audio id="D02-sound" >
-        <source crossorigin="anonymous" src="assets/PrisonDiary(2).mp3" type="audio/mpeg">
+        <source crossorigin="anonymous" src="assets/PrisonDiary(2).mp3" type="audio/mpeg" preload="auto">
       </audio>
       <audio id="D05-sound" >
-        <source crossorigin="anonymous" src="assets/PrisonDiary(5).mp3" type="audio/mpeg">
+        <source crossorigin="anonymous" src="assets/PrisonDiary(5).mp3" type="audio/mpeg" preload="auto">
       </audio>
       <audio id="police-sound" >
-        <source crossorigin="anonymous" src="assets/OldTaipeiPoliceDepartment.mp3" type="audio/mpeg">
+        <source crossorigin="anonymous" src="assets/OldTaipeiPoliceDepartment.mp3" type="audio/mpeg" preload="auto">
       </audio>
       <audio id="dungon-sound">
-        <source crossorigin="anonymous" src="assets/WaterDungeon.mp3" type="audio/mpeg">
+        <source crossorigin="anonymous" src="assets/WaterDungeon.mp3" type="audio/mpeg" preload="auto">
       </audio>
 
       <script>
@@ -266,6 +266,22 @@
 
       <!-- listener-->
       <script type="text/javascript">
+      window.addEventListener('touchstart', function() {
+
+      // create empty buffer
+      var buffer = myContext.createBuffer(1, 1, 22050);
+      var source = myContext.createBufferSource();
+      source.buffer = buffer;
+
+      // connect to output (your speakers)
+      source.connect(myContext.destination);
+
+      // play the file
+      source.noteOn(0);
+
+      }, false);
+
+
         var targetEdungon = document.querySelector('#dungon');
         var targetEdungonImage = document.querySelector('#dungonText');
         var targetEdaily01 = document.querySelector('#daily01');
@@ -343,22 +359,8 @@
           targetEpoliceImage.setAttribute('visible', false);
           policeAudiotarget.pause();
         });
-/*
-        window.addEventListener('touchstart', function() {
 
-      	// create empty buffer
-      	var buffer = myContext.createBuffer(1, 1, 22050);
-      	var source = myContext.createBufferSource();
-      	source.buffer = buffer;
 
-      	// connect to output (your speakers)
-      	source.connect(myContext.destination);
-
-      	// play the file
-      	source.noteOn(0);
-
-        }, false);
-        */
       </script>
 
 
