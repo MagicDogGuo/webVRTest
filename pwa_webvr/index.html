@@ -63,9 +63,6 @@
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
       </a-assets>
 
-
-      <a-sound src="#dungon-sound" autoplay="true" position="0 2 5"></a-sound>
-
       <!--a-link position="5 1.2 -3" href="YYY.html" title="Yongle Market" image="#YYYjpg" ></a-link-->
 
       <!--TEXT -->
@@ -124,8 +121,7 @@
         id="dungon"
         src="#dot-thumb"
         position="-5 0.5 -2"
-        look-at="#camera"
-        sound="on: mouseenter; src: #dungon-sound">
+        look-at="#camera">
       </a-image>
       <a-image
         id="dungonText"
@@ -135,7 +131,12 @@
         visible="false"
         look-at="#camera">
       </a-image>
-
+      <a-sound
+        id="dungonAudio"
+        src=" #dungon-sound"
+        autoplay="false"
+        position="0 2 5">
+      </a-sound>
       <!-- daily01  -->
       <a-image
         id="daily01"
@@ -237,11 +238,12 @@
         var targetEpolice = document.querySelector('#police');
         var targetEpoliceImage = document.querySelector('#policeText');
 
+        var dungonAudiotarget = document.querySelector('#dungonAudio');
+
         targetEdungon.addEventListener('mouseenter', function() {
           targetEdungon.setAttribute('material', {color: 'blue'});
           targetEdungonImage.setAttribute('visible', true);
-          targetEdungon.components.sound.playSound();
-
+          dungonAudiotarget.components.sound.playSound();
         });
         targetEdaily01.addEventListener('mouseenter', function() {
           targetEdaily01.setAttribute('material', {color: 'blue'});
@@ -271,7 +273,7 @@
         targetEdungon.addEventListener('mouseleave', function() {
           targetEdungon.setAttribute('material', {color: 'white'});
           targetEdungonImage.setAttribute('visible', false);
-          targetEdungon.components.sound.stopSound();
+          dungonAudiotarget.components.sound.stopSound();
         });
         targetEdaily01.addEventListener('mouseleave', function() {
           targetEdaily01.setAttribute('material', {color: 'white'});
