@@ -73,19 +73,16 @@
       </audio>
 
       <script>
+      //audio document
         window.addEventListener('touchstart', function() {
-
         // create empty buffer
         var buffer = myContext.createBuffer(1, 1, 22050);
         var source = myContext.createBufferSource();
         source.buffer = buffer;
-
         // connect to output (your speakers)
         source.connect(myContext.destination);
-
         // play the file
         source.noteOn(0);
-
         }, false);
 
         //window.alert("Touch on the screen to start the tour");
@@ -104,6 +101,7 @@
             x.play();
             //x.pause();
             console.log("ss");
+            //點擊預先啟動音檔，之後才能撥放
             d01.play();
             d01.pause();
             d02.play();
@@ -317,7 +315,7 @@
         var policeAudiotarget = document.querySelector("#police-sound");
 
 
-        targetEdungon.addEventListener('click', function() {
+        targetEdungon.addEventListener('mouseenter', function() {
           dungonAudiotarget.play();
           targetEdungon.setAttribute('material', {color: 'blue'});
           targetEdungonImage.setAttribute('visible', true);
