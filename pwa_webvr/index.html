@@ -52,7 +52,7 @@
     <a-scene>
 
       <!--聲音播放-->
-      <audio id="myAudio" >
+      <audio id="myAudio" muted>
         <source src="assets/welcom.mp3" crossorigin="anonymous" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
@@ -81,7 +81,7 @@
           if(a < 3){
             a += 1;
             x.play();
-            x.pause();
+            //x.pause();
             console.log("ss");
           }
         }
