@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <!--debug 更新時cookie不會跟著更新 -->
 <!-- look-at camera https://www.npmjs.com/package/aframe-look-at-component -->
+<!--手機無法撥放aframe sound，要以audio並先撥放過聲音才能運行 -->
 <html>
   <head>
     <link rel="manifest" href="manifest.json">
@@ -47,42 +48,26 @@
   <body>
 
 
-    <audio id="myAudio">
-      <source src="assets/Prison Diary.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-
-    <script type="text/javascript">
-
-
-/*
-        document.addEventListener('click', function () {
-          window.alert();
-          function audioAutoPlay() {
-          var audio = document.getElementById('audio');
-              audio.play();
-          }
-      audioAutoPlay();
-    });
-*/
-    </script>
-
     <!-- 設定a-scene是為了屬性配合a-link -->
     <a-scene>
 
+      <!--聲音播放-->
+      window.alert("Click on the screen to start the tour");
       <audio id="myAudio" >
-        <source src="assets/Prison Diary.mp3" type="audio/mpeg">
+        <source src="assets/welcom.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
-
-
       <script>
+      window.alert("Click on the screen to start the tour");
       var x = document.getElementById("myAudio");
-
-      //DOMContentLoaded
-      document.addEventListener('touchstart', function () {
+      //DOMContentLoaded touchstart
+      var a = 0
+      document.addEventListener('click', function () {
         function audioAutoPlay() {
-          x.play();
+          if(a < 1){
+            a = 1;
+            x.play();
+          }
         }
         audioAutoPlay();
       });
@@ -281,16 +266,14 @@
         var targetEpolice = document.querySelector('#police');
         var targetEpoliceImage = document.querySelector('#policeText');
 
-        var dungonAudiotarget = document.querySelector('#dungonAudio');
 
-        var x = document.getElementById("myAudio");
+        var dungonAudiotarget = document.getElementById("dungon-sound");
 
 
         targetEdungon.addEventListener('mouseenter', function() {
           targetEdungon.setAttribute('material', {color: 'blue'});
           targetEdungonImage.setAttribute('visible', true);
-          //dungonAudiotarget.components.sound.playSound();
-          x.play();
+          dungonAudiotarget.play();
         });
         targetEdaily01.addEventListener('mouseenter', function() {
           targetEdaily01.setAttribute('material', {color: 'blue'});
@@ -320,8 +303,7 @@
         targetEdungon.addEventListener('mouseleave', function() {
           targetEdungon.setAttribute('material', {color: 'white'});
           targetEdungonImage.setAttribute('visible', false);
-          //dungonAudiotarget.components.sound.stopSound();
-          x.pause();
+          dungonAudiotarget.components.sound.stopSound();
 
         });
         targetEdaily01.addEventListener('mouseleave', function() {
