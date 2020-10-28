@@ -52,26 +52,31 @@
     <a-scene>
 
       <!--聲音播放-->
-      window.alert("Touch on the screen to start the tour");
       <audio id="myAudio" >
-        <source src="assets/welcom.mp3" type="audio/mpeg">
+        <source src="assets/welcom.mp3" crossorigin="anonymous" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
       <script>
-      window.alert("Click on the screen to start the tour");
-      var x = document.getElementById("myAudio");
-      //DOMContentLoaded touchstart
-      var a = 0
-      document.addEventListener('touchstart', function () {
+        //window.alert("Touch on the screen to start the tour");
+        var x = document.getElementById("myAudio");
+        //DOMContentLoaded touchstart
+        var a = 0;
         function audioAutoPlay() {
-          if(a < 1){
-            a = 1;
+          if(a < 3){
+            a += 1;
             x.play();
+            x.pause();
           }
         }
-        audioAutoPlay();
-      });
-
+        document.addEventListener('click', function () {
+          audioAutoPlay();
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+          audioAutoPlay();
+        });
+        document.addEventListener('touchstart', function () {
+          audioAutoPlay();
+        });
       </script>
       <a-assets>
         <img id="city" crossorigin="anonymous" src="images/Dungeon360.jpg">
