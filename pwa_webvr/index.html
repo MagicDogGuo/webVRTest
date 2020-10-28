@@ -303,8 +303,10 @@
         targetEdungon.addEventListener('mouseenter', function() {
           targetEdungon.setAttribute('material', {color: 'blue'});
           targetEdungonImage.setAttribute('visible', true);
+        });
+        targetEdungon.addEventListener('click', function() {
           dungonAudiotarget.play();
-          window.alert("ji");
+          console.log("01");
         });
         targetEdaily01.addEventListener('mouseenter', function() {
           targetEdaily01.setAttribute('material', {color: 'blue'});
