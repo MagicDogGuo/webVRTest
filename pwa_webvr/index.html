@@ -40,11 +40,53 @@
         proxy-event="event: click; to: #image-360; as: fade"
         sound="on: click; src: #click-sound"></a-entity>
     </script>
+
+
+
   </head>
   <body>
 
+
+    <audio id="myAudio">
+      <source src="assets/Prison Diary.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <script type="text/javascript">
+
+
+/*
+        document.addEventListener('click', function () {
+          window.alert();
+          function audioAutoPlay() {
+          var audio = document.getElementById('audio');
+              audio.play();
+          }
+      audioAutoPlay();
+    });
+*/
+    </script>
+
     <!-- 設定a-scene是為了屬性配合a-link -->
     <a-scene>
+
+      <audio id="myAudio" >
+        <source src="assets/Prison Diary.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+
+      <script>
+      var x = document.getElementById("myAudio");
+      //DOMContentLoaded
+      document.addEventListener('touchstart', function () {
+        function audioAutoPlay() {
+          x.play();
+        }
+        audioAutoPlay();
+      });
+
+      </script>
       <a-assets>
         <img id="city" crossorigin="anonymous" src="images/Dungeon360.jpg">
         <img id="dot-thumb" crossorigin="anonymous" src="images/dot.png">
@@ -53,7 +95,7 @@
         <img id="daily05-thumb" crossorigin="anonymous" src="images/daily05.png">
         <img id="police-thumb" crossorigin="anonymous" src="images/police.png">
         <img id="dungon-thumb" crossorigin="anonymous" src="images/dungon.png">
-        <audio id="D01-sound" crossorigin="anonymous" src="assets/Prison Diary (online-audio-converter.com).ogg"></audio>
+        <audio id="D01-sound" crossorigin="anonymous" src="assets/Prison Diary.mp3" preload="auto"></audio>
         <audio id="D02-sound" crossorigin="anonymous" src="assets/Prison Diary (2).mp3"></audio>
         <audio id="D05-sound" crossorigin="anonymous" src="assets/Prison Diary (5).mp3"></audio>
         <audio id="police-sound" crossorigin="anonymous" src="assets/Old Taipei Police Department.mp3"></audio>
@@ -347,9 +389,9 @@
       </script>
 
       <script>
-          document.querySelector('#refresh-button').addEventListener('click', function() {
+          //document.querySelector('#refresh-button').addEventListener('click', function() {
               // Refresh stuff would go here!
-          });
+          //});
       </script>
   </body>
 
