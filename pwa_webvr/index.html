@@ -304,7 +304,7 @@
           targetEdungon.setAttribute('material', {color: 'blue'});
           targetEdungonImage.setAttribute('visible', true);
         });
-        targetEdungon.addEventListener('click', function() {
+        document.addEventListener('touchstart', function() {
           dungonAudiotarget.play();
           console.log("01");
         });
