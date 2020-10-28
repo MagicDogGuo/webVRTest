@@ -281,7 +281,6 @@
 
       }, false);
 
-
         var targetEdungon = document.querySelector('#dungon');
         var targetEdungonImage = document.querySelector('#dungonText');
         var targetEdaily01 = document.querySelector('#daily01');
@@ -294,17 +293,18 @@
         var targetEpoliceImage = document.querySelector('#policeText');
 
 
-        var dungonAudiotarget = document.getElementById("dungon-sound");
-        var daily01Audiotarget = document.getElementById("D01-sound");
-        var daily02Audiotarget = document.getElementById("D02-sound");
-        var daily05Audiotarget = document.getElementById("D05-sound");
-        var policeAudiotarget = document.getElementById("police-sound");
+        var dungonAudiotarget = document.querySelector("#dungon-sound");
+        var daily01Audiotarget = document.querySelector("#D01-sound");
+        var daily02Audiotarget = document.querySelector("#D02-sound");
+        var daily05Audiotarget = document.querySelector("#D05-sound");
+        var policeAudiotarget = document.querySelector("#police-sound");
 
 
         targetEdungon.addEventListener('mouseenter', function() {
           targetEdungon.setAttribute('material', {color: 'blue'});
           targetEdungonImage.setAttribute('visible', true);
           dungonAudiotarget.play();
+          window.alert("ji");
         });
         targetEdaily01.addEventListener('mouseenter', function() {
           targetEdaily01.setAttribute('material', {color: 'blue'});
