@@ -75,6 +75,12 @@
       <script>
         //window.alert("Touch on the screen to start the tour");
         var x = document.getElementById("myAudio");
+        var d01 = document.getElementById("D01-sound");
+        var d02 = document.getElementById("D02-sound");
+        var d05 = document.getElementById("D05-sound");
+        var policesound = document.getElementById("police-sound");
+        var dungonsound = document.getElementById("dungon-sound");
+
         //DOMContentLoaded touchstart
         var a = 0;
         function audioAutoPlay() {
@@ -83,6 +89,16 @@
             x.play();
             //x.pause();
             console.log("ss");
+            d01.play();
+            d01.pause();
+            d02.play();
+            d02.pause();
+            d05.play();
+            d05.pause();
+            policesound.play();
+            policesound.pause();
+            dungonsound.play();
+            dungonsound.pause();
           }
         }
         document.addEventListener('click', function () {
