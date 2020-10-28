@@ -300,14 +300,12 @@
         var policeAudiotarget = document.querySelector("#police-sound");
 
 
-        targetEdungon.addEventListener('mouseenter', function() {
+        targetEdungon.addEventListener('click', function() {
+          dungonAudiotarget.play();
           targetEdungon.setAttribute('material', {color: 'blue'});
           targetEdungonImage.setAttribute('visible', true);
         });
-        document.addEventListener('touchstart', function() {
-          dungonAudiotarget.play();
-          console.log("01");
-        });
+
         targetEdaily01.addEventListener('mouseenter', function() {
           targetEdaily01.setAttribute('material', {color: 'blue'});
           targetEdaily01Image.setAttribute('visible', true);
