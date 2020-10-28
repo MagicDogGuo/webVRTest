@@ -170,8 +170,7 @@
         id="daily01"
         src="#dot-thumb"
         position="-3 1.2 -4"
-        look-at="#camera"
-        sound="on: mouseenter; src: #D01-sound">
+        look-at="#camera">
       </a-image>
       <a-image
         id="daily01Text"
@@ -187,8 +186,7 @@
         id="daily02"
         src="#dot-thumb"
         position="1 1.2 -4"
-        look-at="#camera"
-        sound="on: mouseenter; src: #D02-sound">
+        look-at="#camera">
       </a-image>
       <a-image
         id="daily02Text"
@@ -204,8 +202,7 @@
         id ="daily05"
         src="#dot-thumb"
         position="4 1.2 -4"
-        look-at="#camera"
-        sound="on: mouseenter; src: #D05-sound">
+        look-at="#camera">
       </a-image>
       <a-image
         id="daily05Text"
@@ -221,8 +218,7 @@
         id ="police"
         src="#dot-thumb"
         position="3 1.2 5"
-        look-at="#camera"
-        sound="on: mouseenter; src: #police-sound">
+        look-at="#camera">
       </a-image>
       <a-image
         id="policeText"
@@ -268,6 +264,10 @@
 
 
         var dungonAudiotarget = document.getElementById("dungon-sound");
+        var daily01Audiotarget = document.getElementById("D01-sound");
+        var daily02Audiotarget = document.getElementById("D02-sound");
+        var daily05Audiotarget = document.getElementById("D05-sound");
+        var policeAudiotarget = document.getElementById("police-sound");
 
 
         targetEdungon.addEventListener('mouseenter', function() {
@@ -278,56 +278,55 @@
         targetEdaily01.addEventListener('mouseenter', function() {
           targetEdaily01.setAttribute('material', {color: 'blue'});
           targetEdaily01Image.setAttribute('visible', true);
-          targetEdaily01.components.sound.playSound();
-
+          daily01Audiotarget.play();
         });
         targetEdaily02.addEventListener('mouseenter', function() {
           targetEdaily02.setAttribute('material', {color: 'blue'});
           targetEdaily02Image.setAttribute('visible', true);
-          targetEdaily02.components.sound.playSound();
+          daily02Audiotarget.play();
 
         });
         targetEdaily05.addEventListener('mouseenter', function() {
           targetEdaily05.setAttribute('material', {color: 'blue'});
           targetEdaily05Image.setAttribute('visible', true);
-          targetEdaily05.components.sound.playSound();
+          daily05Audiotarget.play();
 
         });
         targetEpolice.addEventListener('mouseenter', function() {
           targetEpolice.setAttribute('material', {color: 'blue'});
           targetEpoliceImage.setAttribute('visible', true);
-          targetEpolice.components.sound.playSound();
+          policeAudiotarget.play();
 
         });
 
         targetEdungon.addEventListener('mouseleave', function() {
           targetEdungon.setAttribute('material', {color: 'white'});
           targetEdungonImage.setAttribute('visible', false);
-          dungonAudiotarget.components.sound.stopSound();
+          dungonAudiotarget.pause();
 
         });
         targetEdaily01.addEventListener('mouseleave', function() {
           targetEdaily01.setAttribute('material', {color: 'white'});
           targetEdaily01Image.setAttribute('visible', false);
-          targetEdaily01.components.sound.stopSound();
+          daily01Audiotarget.pause();
 
         });
         targetEdaily02.addEventListener('mouseleave', function() {
           targetEdaily02.setAttribute('material', {color: 'white'});
           targetEdaily02Image.setAttribute('visible', false);
-          targetEdaily02.components.sound.stopSound();
+          daily02Audiotarget.pause();
 
         });
         targetEdaily05.addEventListener('mouseleave', function() {
           targetEdaily05.setAttribute('material', {color: 'white'});
           targetEdaily05Image.setAttribute('visible', false);
-          targetEdaily05.components.sound.stopSound();
+          daily05Audiotarget.pause();
 
         });
         targetEpolice.addEventListener('mouseleave', function() {
           targetEpolice.setAttribute('material', {color: 'white'});
           targetEpoliceImage.setAttribute('visible', false);
-          targetEpolice.components.sound.stopSound();
+          policeAudiotarget.pause();
         });
 
         window.addEventListener('touchstart', function() {
