@@ -131,7 +131,7 @@
         <img id="police-thumb" crossorigin="anonymous" src="images/police.png">
         <img id="dungon-thumb" crossorigin="anonymous" src="images/dungon.png">
         <img id="startImage" crossorigin="anonymous" src="images/pressstart.png">
-        <img id="ENImage" crossorigin="anonymous" src="images/EN.png">
+        <img id="CNImage" crossorigin="anonymous" src="images/CN.png">
 
         <!--img id="YYYjpg" crossorigin="anonymous" src="images/YYY.jpg"-->
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
@@ -277,8 +277,8 @@
 
 
       <a-image
-        id="ENobj"
-        src="#ENImage"
+        id="CNobj"
+        src="#CNImage"
         scale='2 1.5 1'
         position="5 3 3"
         look-at="#camera">
@@ -325,7 +325,7 @@
         var daily05Audiotarget = document.querySelector("#D05-sound");
         var policeAudiotarget = document.querySelector("#police-sound");
 
-        var targetImageEN = document.querySelector('#ENobj');
+        var targetImageCN = document.querySelector('#CNobj');
 
 
         targetEdungon.addEventListener('mouseenter', function() {
@@ -388,8 +388,8 @@
           policeAudiotarget.pause();
         });
 
-        targetImageEN.addEventListener('click', function() {
-          location.href = 'english.html';
+        targetImageCN.addEventListener('click', function() {
+          location.href = 'index.html';
         });
       </script>
 
